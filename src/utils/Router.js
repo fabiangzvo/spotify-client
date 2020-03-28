@@ -3,14 +3,14 @@ import { Router as Routes } from '@reach/router'
 //imports
 import { Context } from "./Context";
 import Home from "../components/Home/index";
-import User from "../components/User/index";
+import UserProfile from "../containers/UserProfile";
 const Router = () => {
 
   const { isAuth } = useContext(Context)
 
   return (
     <Routes>
-      {!isAuth ? <Home path='/' /> : <User path='/' />}
+      {!isAuth ? <Home path='/' /> : <UserProfile path='/' />}
     </Routes>
   )
 }

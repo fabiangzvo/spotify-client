@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-    html {
+    html,#root {
       box-sizing: border-box;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       width: 100%;
@@ -10,12 +10,6 @@ export const GlobalStyles = createGlobalStyle`
       
     *, *::before, *::after {
       box-sizing: inherit;
-    }
-
-    body, body > div,body > div>div {
-      margin: 0 auto;
-      width: 100%;
-      height:100%;
     }
 
     .button_home {
@@ -36,5 +30,9 @@ export const GlobalStyles = createGlobalStyle`
       display:flex;
       justify-content:space-evenly;
       width:50%;
+    }
+
+    .ui.menu:after{
+      display:none;
     }
 ` 

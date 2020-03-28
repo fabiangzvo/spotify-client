@@ -27,6 +27,7 @@ const Home = () => {
           onFailure={onFailure}
           buttonText='Ingresar'
           className='button_home'
+          scope='user-read-email,user-read-private,user-follow-read,playlist-read-private,user-library-modify'
         />
 
         <input type='button' className='button_home' onClick={() => window.location.href = 'https://www.spotify.com/signup/'} value='Registrarse' />
