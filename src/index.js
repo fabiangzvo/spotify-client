@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import Context from "./utils/Context";
+import App from './App'
+import * as serviceWorker from './serviceWorker'
+import Context from "./utils/Context"
+import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
   <React.StrictMode>
