@@ -11,7 +11,3 @@ export const Nav = styled(Menu)`
     margin-left:0 !important;
   }
 `
-
-export const SubMenu = styled(Menu.Menu)`
-  margin:0 !important;
-`

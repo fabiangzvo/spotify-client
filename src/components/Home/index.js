@@ -17,7 +17,7 @@ const Home = () => {
     <Container>
       <Title>La nueva alternativa cliente de spotify</Title>
       <Description>Accede a millones de canciones desde la api de spotify,
-        reproduce y crea listas de
+        escucha y crea listas de
         reproducciones personalizadas.
       </Description>
       <Row>
@@ -27,7 +27,7 @@ const Home = () => {
           onFailure={onFailure}
           buttonText='Ingresar'
           className='button_home'
-          scope='user-read-email,user-read-private,user-follow-read,playlist-read-private,user-library-modify'
+          scope='user-read-email,user-read-private,user-follow-read,playlist-read-private,user-library-modify,playlist-modify-public,playlist-modify-private'
         />
 
         <input type='button' className='button_home' onClick={() => window.location.href = 'https://www.spotify.com/signup/'} value='Registrarse' />

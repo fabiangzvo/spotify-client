@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, Fragment } from 'react'
 
 //imports 
 import { Menu, Input } from 'semantic-ui-react'
@@ -15,19 +15,19 @@ const NavBar = () => {
   }
 
   return (
-    <Nav secondary stackable>
+    <Nav secondary stackable >
       <SpotyClient />
-
-      <Menu.Item>
-        <Input icon='search' placeholder='Search...' />
-      </Menu.Item>
-
       {
         isAuth ?
-          <Menu.Menu secondary stackable>
-            <Item path='/profile' label='cuenta' />
-            <Item path='/' label='Salir' onClick={() => logout()} />
-          </Menu.Menu> : ''}
+          <Fragment>
+            <Menu.Item>
+              <Input icon='search' placeholder='Search...' />
+            </Menu.Item>
+            <Menu secondary stackable>
+              <Item path='/profile' label='cuenta' />
+              <Item path='/' label='Salir' onClick={() => logout()} />
+            </Menu>
+          </Fragment> : ''}
     </Nav>
   )
 }

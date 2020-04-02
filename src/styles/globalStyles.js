@@ -35,4 +35,13 @@ export const GlobalStyles = createGlobalStyle`
     .ui.menu:after{
       display:none;
     }
+
+    .full-height{
+      height:100%;
+    }
+
+    .ui.label{
+      background:inherit !important;
+    }
+    
 ` 

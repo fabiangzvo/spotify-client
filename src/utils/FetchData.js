@@ -1,5 +1,4 @@
-import React from 'react'
-import { config } from "../config/index";
+import { config } from "../config/index"
 
 
 //simple fetch without body
@@ -11,10 +10,6 @@ export const getData = async (path = '', method = 'GET') => {
       Authorization: `Bearer ${token}`
     }
   })
-    .then(res => res.json())
-    .catch(e => {
-      console.log('error : ', e)
-    })
 }
 
 //fetch with body request
@@ -52,10 +47,10 @@ export const toSeconds = (ms) => {
 export const concatArtists = (artists = []) => {
   var label = ''
   //map all artists
-  artists.map((artist) => {
+  artists.map(artist =>
     //
     label += artist.name + ', '
-  })
+  )
 
   return label.slice(0, -2)
 }

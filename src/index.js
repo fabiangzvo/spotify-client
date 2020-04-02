@@ -7,11 +7,10 @@ import Context from "./utils/Context"
 import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Context.Provider>
-      <App />
-    </Context.Provider>
-  </React.StrictMode>,
+  <Context.Provider>
+    <App />
+  </Context.Provider>
+  ,
   document.getElementById('root')
 );
 

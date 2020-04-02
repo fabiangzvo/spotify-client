@@ -2,7 +2,8 @@
   "build": {
     "env": {
       "REACT_APP_CLIENT_ID": "@react_app_client_id",
-      "REACT_APP_LINK_REDIRECT": "@react_app_link_redirect"
+      "REACT_APP_LINK_REDIRECT": "@react_app_link_redirect",
+      "REACT_APP_BASE_URL": "@react_app_base_url"
     }
   }
 }

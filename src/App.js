@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 //imports
-import NavBar from "./components/NavBar/index";
-import { GlobalStyles } from "./styles/globalStyles";
-import Router from "./utils/Router";
+import NavBar from "./components/NavBar/index"
+import { GlobalStyles } from "./styles/globalStyles"
+import Router from "./utils/Router"
 
 function App() {
   return (
