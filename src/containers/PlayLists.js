@@ -1,20 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 //imports
-import { Header } from "semantic-ui-react"
-import { getData, fetchWithBody } from "../utils/FetchData"
+import { Header, Label, Icon } from "semantic-ui-react"
+import { getData } from "../utils/FetchData"
 import Layout from "../components/Layout/index"
-import PlayList from "../components/PlayList/index";
+import PlayList from "../components/PlayList/index"
+import CreatePlaylist from "./CreatePlaylist";
+import { fetchWithBody } from "../utils/FetchData";
+import { Context } from "../utils/Context";
+
 
 const PlayLists = () => {
   const [list, setList] = useState([])
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [isPublic, setIsPublic] = useState(false)
+
+  const { user } = useContext(Context)
+
 
   const deletePLayList = (playlist_id) => {
     getData(`playlists/${playlist_id}/followers`, 'DELETE')
       .then((res) => {
-        console.log(res)
+        setList(list.filter((item) => item.id !== playlist_id))
       })
       .catch(e => {
         console.log('error : ', e)
+      })
+  }
+
+  const onSubmit = () => {
+    console.log(name)
+    console.log(description)
+    console.log(isPublic)
+
+    fetchWithBody(`users/${user.id}/playlists`, 'POST', {
+      name, description, "public": isPublic
+    })
+      .then(response => response.json())
+      .then(response => {
+        setList([response, ...list])
+      })
+      .catch(e => {
+        console.log(e)
       })
   }
 
@@ -31,10 +58,10 @@ const PlayLists = () => {
 
   return (
     <Layout direction="column" width={80}>
-      <Header as='h3'>PlayList</Header>
+      <Header className='medium-width' as='h2'>PlayLists <CreatePlaylist submit={onSubmit} handleDescription={setDescription} handleIsPublic={setIsPublic} handleName={setName} /></Header>
       {
         list.length !== 0 ?
-          <PlayList list={list} remove={deletePLayList} /> : "Aún no ha creado alguna playlist."}
+          <PlayList list={list} remove={deletePLayList} /> : <Label size='large'>Aún no ha creado alguna playlist.</Label>}
     </Layout>
   )
 }

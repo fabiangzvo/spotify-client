@@ -1,7 +1,8 @@
 import React, { useContext, Fragment } from 'react'
 
 //imports 
-import { Menu, Input } from 'semantic-ui-react'
+import { Menu, Input, Icon } from 'semantic-ui-react'
+import { useNavigate } from "@reach/router"
 import SpotyClient from "../SpotyClient/index"
 import { Nav } from "./style";
 import Item from "../Item/index";
@@ -9,9 +10,13 @@ import { Context } from "../../utils/Context"
 
 const NavBar = () => {
   const { removeAuth, isAuth } = useContext(Context)
-
+  const navigate = useNavigate()
   const logout = () => {
     removeAuth()
+  }
+  const handleClick = () => {
+    const toSearch = document.getElementsByClassName('search-input')[0].value
+    navigate(`/search/${toSearch}`, { replace: true })
   }
 
   return (
@@ -21,7 +26,7 @@ const NavBar = () => {
         isAuth ?
           <Fragment>
             <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
+              <Input input={<input type='text' className='search-input' />} icon={<Icon name='search' link onClick={(e) => { handleClick() }} />} placeholder='Buscar canción' />
             </Menu.Item>
             <Menu secondary stackable>
               <Item path='/profile' label='cuenta' />

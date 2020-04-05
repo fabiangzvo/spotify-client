@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import { Router as Routes } from '@reach/router'
+import { Router as Routes, Redirect } from '@reach/router'
 //imports
 import { Context } from "./Context"
 import Home from "../components/Home/index"
 import UserProfile from "../containers/UserProfile"
+import Search from "../containers/Search"
 
 const Router = () => {
 
@@ -16,6 +17,8 @@ const Router = () => {
   return (
     <Routes component={routes}>
       {!isAuth ? <Home path='/' /> : <UserProfile path='/' />}
+      {!isAuth && <Redirect from='/search/' to='/' />}
+      <Search path='/search/:query' />
     </Routes>
   )
 }

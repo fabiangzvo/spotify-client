@@ -3,14 +3,18 @@ import React, { Fragment } from 'react'
 import NavBar from "./components/NavBar/index"
 import { GlobalStyles } from "./styles/globalStyles"
 import Router from "./utils/Router"
+import { createHistory, LocationProvider } from "@reach/router"
+import Footer from "./components/Footer/index";
 
 function App() {
+  const history = createHistory(window)
   return (
-    <Fragment>
+    <LocationProvider history={history}>
       <GlobalStyles />
       <NavBar />
       <Router />
-    </Fragment>
+      <Footer />
+    </LocationProvider>
   );
 }
 

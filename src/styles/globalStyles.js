@@ -44,4 +44,14 @@ export const GlobalStyles = createGlobalStyle`
       background:inherit !important;
     }
     
+    .medium-width{
+      width:50%;
+      display:flex;
+      justify-content:space-around;
+    }
+
+    .medium-width > .icon{
+      font-size:1em !important;
+    }
+
 ` 
