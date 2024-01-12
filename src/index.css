@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  --primary: #1db954;
+  --secondary: #142b1c;
+  --title: #c4c4c4;
+  --paragraph: #ffffff;
+  --background: #191414;
+  --dark: #121212;
+}
+
+body {
+  background-color: var(--background);
+}
