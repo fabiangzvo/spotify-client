@@ -50,8 +50,6 @@ function useDataFetch(props: DataFetchProps) {
     rootMargin: "0px 0px 400px 0px",
   });
 
-  console.log({ hasMore, loading, offset, limit });
-
   return { ref, loading, offset, reset };
 }
 

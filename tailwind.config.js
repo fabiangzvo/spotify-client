@@ -8,7 +8,7 @@ export default {
         secondary: "#21A04E",
         title: "#C4C4C4",
         paragraph: "#ffffff",
-        background: "#121212",
+        background: "#000000",
         tertiary: "#142B1C",
         dark: "#191414",
         shadow: "#A2A2A2",

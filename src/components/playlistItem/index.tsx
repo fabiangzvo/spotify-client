@@ -7,7 +7,6 @@ function PlaylistItem(props: Playlist) {
     images: [{ url, width }],
     tracks: { total },
     name,
-    description,
   } = props;
 
   return (
