@@ -3,7 +3,7 @@ import { useOutlet } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
 import Login from "../../pages/login";
-import VerticalMenu from "../VerticalMenu";
+import VerticalMenu from "../verticalMenu";
 
 function PrivateRoute() {
   const { isAuthenticated } = useContext(AuthContext);

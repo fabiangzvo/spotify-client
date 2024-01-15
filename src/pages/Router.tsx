@@ -1,13 +1,13 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import PrivateRoute from "../components/PrivateRoute";
+import PrivateRoute from "../components/privateRoute";
 const Home = lazy(() => import("./home"));
 const Playlists = lazy(() => import("./playlists"));
 const Likes = lazy(() => import("./likes"));
 const Browse = lazy(() => import("./browse"));
 const Podcasts = lazy(() => import("./podcasts"));
-const Loader = lazy(() => import("../components/Loader"));
+const Loader = lazy(() => import("../components/loader"));
 
 function Router() {
   return (

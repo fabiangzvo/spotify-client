@@ -1,4 +1,4 @@
-import { ReactNode, useState, useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { GoHomeFill } from "react-icons/go";
 import { BsCompassFill } from "react-icons/bs";
@@ -42,17 +42,12 @@ const items: Array<NavbarItem> = [
 ];
 
 function App() {
-  const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
 
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
   const navbarItems = useMemo(() => {
     return items.map(({ icon, label, to }) => {
       const current = location.pathname === to ? "text-white" : "text-shadow";
 
-      console.log({ to, path: location.pathname, current });
       return (
         <li key={label} className="w-full flex justify-center relative mt-6">
           <div className="group flex flex-wrap cursor-default">

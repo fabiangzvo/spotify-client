@@ -1,7 +1,9 @@
+import FeaturedPlaylists from "../../components/featuredPlaylists";
+
 function Home() {
   return (
     <main className="h-full w-full">
-      <span className="text-paragraph">Melo caramelo</span>
+      <FeaturedPlaylists />
     </main>
   );
 }
