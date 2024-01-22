@@ -45,8 +45,12 @@ interface Track {
   is_local: boolean;
 }
 
+interface UserTop extends FetchDataInterface {
+  type: "artists" | "tracks";
+}
+
 export async function GetUserTop(
-  props: FetchDataInterface
+  props: UserTop
 ): Promise<PaginatedData<Track>> {
   const { offset = 0, limit = 20 } = props;
 
@@ -56,6 +60,7 @@ export async function GetUserTop(
       params: {
         offset,
         limit,
+        country: Intl.DateTimeFormat().resolvedOptions().timeZone,
       },
     }
   );

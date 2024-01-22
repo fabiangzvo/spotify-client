@@ -3,6 +3,7 @@ export interface FetchDataInterface {
   limit?: number;
   locale?: string;
   country?: string;
+  //[x: string]: unknown;
 }
 
 type FetchDataReturn = {

@@ -5,6 +5,7 @@ import { FetchDataInterface } from "../../types/Pagination";
 import { GetNewReleases } from "../../api/Album";
 import { Album } from "../../types/Album";
 import Loader from "../loader";
+import AlbumCard from "../albumCard";
 
 function SuggestedAlbums() {
   const [albums, setAlbums] = useState<Array<Album>>([]);
@@ -35,33 +36,16 @@ function SuggestedAlbums() {
   });
 
   const items = useMemo(
-    () =>
-      albums.map((album) => (
-        <div
-          key={album.id}
-          className="w-[17.4rem] m-2 p-3 inline-block relative cursor-pointer border border-[#333333] rounded-xl bg-[#0D0D0D] text-center"
-        >
-          <img
-            className="w-[17rem] h-[17rem] rounded-2xl"
-            src={album.images[0].url}
-          />
-          <span className="font-black text-wrap line-clamp-1 text-paragraph mt-3">
-            {album.name}
-          </span>
-          <span className="leading-3 text-sm text-title line-clamp-1">
-            {album.artists.map((artist) => artist.name).join(", ")}
-          </span>
-        </div>
-      )),
+    () => albums.map((album) => <AlbumCard {...album} />),
     [albums]
   );
 
   return (
-    <div className="w-[50%]">
+    <div className="w-[53%] max-sm:w-[90vw]">
       <h1 className="text-xl font-black text-title my-6">
         Suggested album for you
       </h1>
-      <div className="w-full h-[60vh] overflow-y-auto overflow-x-hidden">
+      <div className="w-full h-[60vh] overflow-y-auto overflow-x-hidden grid grid-cols-auto-fill gap-1 items-stretch">
         {items}
         <div ref={ref}>{loading && <Loader />}</div>
       </div>

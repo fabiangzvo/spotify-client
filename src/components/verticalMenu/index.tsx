@@ -56,7 +56,7 @@ function App() {
               data-tooltip-target="tooltip-right"
               data-tooltip-placement="right"
               className={cs({
-                "mb-3 text-3xl active:text-paragraph focus:text-paragraph line-clamp-1 max-md:text-4xl cursor-pointer":
+                "mb-3 text-3xl max-sm:text-2xl active:text-paragraph focus:text-paragraph line-clamp-1 max-md:text-4xl cursor-pointer":
                   true,
                 [current]: true,
               })}

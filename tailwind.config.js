@@ -13,6 +13,9 @@ export default {
         dark: "#191414",
         shadow: "#A2A2A2",
       },
+      gridTemplateColumns: {
+        "auto-fill": "repeat(auto-fill, minmax(12rem, 3fr))",
+      },
     },
   },
   plugins: [],

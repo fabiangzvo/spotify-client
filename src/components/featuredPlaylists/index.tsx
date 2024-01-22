@@ -23,7 +23,6 @@ function FeaturedPlaylists() {
 
       setPlaylists([...playlists, ...items]);
 
-      console.log({ total, currentOffset });
       return {
         total,
         currentOffset,
