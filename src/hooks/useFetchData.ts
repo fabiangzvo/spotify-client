@@ -27,13 +27,16 @@ function useDataFetch(props: DataFetchProps) {
   const handleLoadMore = useCallback(async () => {
     setPagination({ property: "loading", payload: true });
 
-    const { total, currentOffset } = await fetchData({ offset, limit });
-
+    const { total, currentOffset, hasMore } = await fetchData({
+      offset,
+      limit,
+    });
+    console.log({ total, currentOffset, hasMore });
     setPagination({ property: "offset", payload: currentOffset });
     setPagination({ property: "loading", payload: false });
     setPagination({
       property: "hasMore",
-      payload: total >= currentOffset,
+      payload: hasMore,
     });
   }, [fetchData, offset, limit]);
 
@@ -50,7 +53,7 @@ function useDataFetch(props: DataFetchProps) {
     rootMargin: "0px 0px 400px 0px",
   });
 
-  return { ref, loading, offset, reset };
+  return { ref, loading, offset, reset, hasMore };
 }
 
 export default useDataFetch;

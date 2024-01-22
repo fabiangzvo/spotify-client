@@ -13,13 +13,17 @@ function SuggestedAlbums() {
     async (props: FetchDataInterface) => {
       const { offset = 0, limit = 20 } = props;
 
-      const { albums: data } = await GetNewReleases({ offset, limit });
-      console.log(data);
-      setAlbums([...albums, ...data.items]);
+      const {
+        albums: { items, total },
+      } = await GetNewReleases({ offset, limit });
+
+      const currentOffset: number = offset + limit;
+      setAlbums([...albums, ...items]);
 
       return {
-        total: data.total,
-        currentOffset: offset + limit,
+        total,
+        currentOffset,
+        hasMore: total > currentOffset,
       };
     },
     [albums]
@@ -35,13 +39,13 @@ function SuggestedAlbums() {
       albums.map((album) => (
         <div
           key={album.id}
-          className="w-[15rem] m-2 p-3 inline-block relative cursor-pointer border border-[#333333] rounded-xl bg-[#0D0D0D]"
+          className="w-[17.4rem] m-2 p-3 inline-block relative cursor-pointer border border-[#333333] rounded-xl bg-[#0D0D0D] text-center"
         >
           <img
-            className="w-[15rem] h-[15rem] rounded-2xl"
+            className="w-[17rem] h-[17rem] rounded-2xl"
             src={album.images[0].url}
           />
-          <span className="font-black text-wrap line-clamp-1 text-paragraph">
+          <span className="font-black text-wrap line-clamp-1 text-paragraph mt-3">
             {album.name}
           </span>
           <span className="leading-3 text-sm text-title line-clamp-1">
@@ -53,12 +57,14 @@ function SuggestedAlbums() {
   );
 
   return (
-    <div>
+    <div className="w-[50%]">
       <h1 className="text-xl font-black text-title my-6">
         Suggested album for you
       </h1>
-      <div className="w-full h-[17rem] ">{items}</div>
-      <div ref={ref}>{loading && <Loader />}</div>
+      <div className="w-full h-[60vh] overflow-y-auto overflow-x-hidden">
+        {items}
+        <div ref={ref}>{loading && <Loader />}</div>
+      </div>
     </div>
   );
 }

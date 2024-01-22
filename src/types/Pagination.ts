@@ -5,10 +5,24 @@ export interface FetchDataInterface {
   country?: string;
 }
 
+type FetchDataReturn = {
+  total: number;
+  currentOffset: number;
+  hasMore: boolean;
+};
+
+export interface PaginatedData<T> {
+  href: string;
+  limit: number;
+  next: string;
+  offset: number;
+  previous: string;
+  total: number;
+  items: Array<T>;
+}
+
 export interface DataFetchProps {
-  fetchData(
-    params: FetchDataInterface
-  ): Promise<{ total: number; currentOffset: number }>;
+  fetchData(params: FetchDataInterface): Promise<FetchDataReturn>;
   limit?: number;
 }
 

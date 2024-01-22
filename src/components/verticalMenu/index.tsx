@@ -56,7 +56,7 @@ function App() {
               data-tooltip-target="tooltip-right"
               data-tooltip-placement="right"
               className={cs({
-                "mb-3 text-xl  active:text-paragraph focus:text-paragraph line-clamp-1 max-md:text-4xl cursor-pointer":
+                "mb-3 text-3xl active:text-paragraph focus:text-paragraph line-clamp-1 max-md:text-4xl cursor-pointer":
                   true,
                 [current]: true,
               })}
@@ -66,7 +66,7 @@ function App() {
             <div
               id="tooltip-right"
               role="tooltip"
-              className="left-20 -bottom-20 absolute z-20 invisible max-w-sm inline-block px-3 py-2 text-sm font-medium text-text transition-opacity duration-300 bg-background border border-stroke rounded-lg shadow-sm opacity-0 -translate-y-20 tooltip group-hover:opacity-100 group-hover:visible max-md:text-3xl max-md:max-w-lg"
+              className="left-[7rem] -bottom-20 absolute z-20 invisible max-w-sm inline-block px-3 py-2 text-sm font-medium text-text transition-opacity duration-300 bg-background border border-stroke rounded-lg shadow-sm opacity-0 -translate-y-20 tooltip group-hover:opacity-100 group-hover:visible max-md:text-3xl max-md:max-w-lg"
             >
               {label}
             </div>

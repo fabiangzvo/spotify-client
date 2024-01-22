@@ -9,7 +9,6 @@ import Loader from "../loader";
 
 function FeaturedPlaylists() {
   const [playlists, setPlaylists] = useState<Array<Playlist>>([]);
-  const [title, setTitle] = useState("");
 
   const getFeaturedPlaylist = useCallback(
     async (props: FetchDataInterface) => {
@@ -17,18 +16,24 @@ function FeaturedPlaylists() {
 
       const data = await GetFeaturedPLaylists({ offset, limit });
 
-      setPlaylists([...playlists, ...data.playlists.items]);
-      setTitle(data.message);
+      const {
+        playlists: { items, total },
+      } = data;
+      const currentOffset: number = offset + limit;
 
+      setPlaylists([...playlists, ...items]);
+
+      console.log({ total, currentOffset });
       return {
-        total: data.playlists.total,
-        currentOffset: offset + limit,
+        total,
+        currentOffset,
+        hasMore: total > currentOffset,
       };
     },
     [playlists]
   );
 
-  const { ref, loading } = useFetchData({
+  const { ref, loading, hasMore } = useFetchData({
     fetchData: getFeaturedPlaylist,
   });
 
@@ -42,11 +47,13 @@ function FeaturedPlaylists() {
 
   return (
     <div>
-      <h1 className="text-xl font-black text-title my-6">{title}</h1>
+      <h1 className="text-xl font-black text-title my-6">Popular playlists</h1>
       <div className="w-full overflow-x-scroll overflow-y-hidden h-[17rem] whitespace-nowrap">
         {items}
+        <div ref={ref} className="h-full inline-block relative top-[-6rem]">
+          {(loading || hasMore) && <Loader />}
+        </div>
       </div>
-      <div ref={ref}>{loading && <Loader />}</div>
     </div>
   );
 }
