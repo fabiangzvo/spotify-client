@@ -43,7 +43,7 @@ async function rejectResponse(error: AxiosError): Promise<AxiosError> {
       window.location.reload();
     }
   } else {
-    console.error("Intercept: ", messageError);
+    console.error("Intercept: ", JSON.stringify(messageError, null, 2));
   }
   return messageError;
 }

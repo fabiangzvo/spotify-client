@@ -1,50 +1,10 @@
 import SpotifyApi from "./SpotifyApi";
-import { Album } from "../types/Album";
-import { Artist } from "../types/Artist";
+import { Track } from "../types/Track";
+import { Seed } from "../types/Seed";
 import { FetchDataInterface } from "../types/Pagination";
 
 interface RecommendationData extends FetchDataInterface {
   seed_genres: string;
-}
-
-export interface Seed {
-  afterFilteringSize: number;
-  afterRelinkingSize: number;
-  href: string;
-  id: string;
-  initialPoolSize: number;
-  type: string;
-}
-
-export interface Track {
-  album: Album;
-  artists: Array<Artist>;
-  available_markets: ["string"];
-  disc_number: number;
-  duration_ms: number;
-  explicit: false;
-  external_ids: {
-    isrc: string;
-    ean: string;
-    upc: string;
-  };
-  external_urls: {
-    spotify: string;
-  };
-  href: string;
-  id: string;
-  is_playable: false;
-  linked_from: Record<string, unknown>;
-  restrictions: {
-    reason: string;
-  };
-  name: string;
-  popularity: number;
-  preview_url: string;
-  track_number: number;
-  type: "track";
-  uri: string;
-  is_local: boolean;
 }
 
 interface RecommendationResponse {
@@ -67,5 +27,5 @@ export async function GetRecommendations(
     }
   );
 
-  return response.data;
+  return response.data || { seeds: [], tracks: [] };
 }

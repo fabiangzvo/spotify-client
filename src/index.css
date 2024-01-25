@@ -9,26 +9,25 @@ html {
   --paragraph: #ffffff;
   --background: #000000;
   --dark: #191414;
-  --shadow: #A2A2A2;
+  --shadow: #a2a2a2;
 }
 
 body {
   background-color: var(--background);
 }
 
-
-div::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
   width: 18px;
 }
 
-div::-webkit-scrollbar-track {
+.scroll::-webkit-scrollbar-track {
   border-radius: 2px;
   background-color: var(--background);
 }
 
-div::-webkit-scrollbar-thumb {
+.scroll::-webkit-scrollbar-thumb {
   border-radius: 8px;
-border: 4px solid transparent;
- background-clip: content-box;
+  border: 4px solid transparent;
+  background-clip: content-box;
   background-color: var(--shadow);
 }

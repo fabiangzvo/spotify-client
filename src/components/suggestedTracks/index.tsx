@@ -1,52 +1,44 @@
 import { useEffect, useState } from "react";
 
-import { GetRecommendations, Seed, Track } from "../../api/Track";
-import { GetGenres } from "../../api/Genre";
+import { GetRecommendations } from "../../api/Track";
+import { Track } from "../../types/Track";
+import { Seed } from "../../types/Seed";
+import ListOfTracks from "../listOfTracks";
 
-function SuggestedTracks() {
-  const [genres, setGenres] = useState<Array<string>>([]);
-  const [seeds, setSeeds] = useState<Array<Seed>>([]);
+interface SuggestedTracksProps {
+  genres: string;
+}
+
+function SuggestedTracks(props: SuggestedTracksProps) {
+  const { genres } = props;
+
+  const [_seeds, setSeeds] = useState<Array<Seed>>([]);
   const [tracks, setTracks] = useState<Array<Track>>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getInitialData() {
-      if (genres.length <= 0) {
-        const { genres: items } = await GetGenres();
+      if (!genres) return;
 
-        setGenres(items.slice(0, 5));
-      }
+      setLoading(true);
 
       const { seeds, tracks } = await GetRecommendations({
         offset: 20,
-        seed_genres: genres.join(","),
+        seed_genres: genres || "",
       });
 
       setTracks(tracks);
       setSeeds(seeds);
+      setLoading(false);
     }
 
     getInitialData();
   }, [genres]);
 
   return (
-    <div className="w-[40vw]">
-      SuggestedTracks
-      <div className="h-full inline-block relative top-[-6rem]">
-        <ol>
-          {tracks.map((i) => (
-            <li key={i.id} className="text-paragraph">
-              {i.name}
-            </li>
-          ))}
-        </ol>
-        <ol>
-          {seeds.map((i) => (
-            <li key={i.id} className="text-paragraph">
-              {i.id}
-            </li>
-          ))}
-        </ol>
-      </div>
+    <div className="w-[25vw]">
+      <h1 className="text-xl font-black text-title my-6">Suggested tracks</h1>
+      <ListOfTracks tracks={tracks} loading={loading} />
     </div>
   );
 }

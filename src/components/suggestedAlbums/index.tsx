@@ -36,16 +36,16 @@ function SuggestedAlbums() {
   });
 
   const items = useMemo(
-    () => albums.map((album) => <AlbumCard {...album} />),
+    () => albums.map((album) => <AlbumCard key={album.id} {...album} />),
     [albums]
   );
 
   return (
-    <div className="w-[53%] max-sm:w-[90vw]">
+    <div className="w-[40vw] max-sm:w-[90vw]">
       <h1 className="text-xl font-black text-title my-6">
         Suggested album for you
       </h1>
-      <div className="w-full h-[60vh] overflow-y-auto overflow-x-hidden grid grid-cols-auto-fill gap-1 items-stretch">
+      <div className="w-full h-[60vh] overflow-y-auto overflow-x-hidden grid gap-1 items-stretch sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-auto-fill scroll">
         {items}
         <div ref={ref}>{loading && <Loader />}</div>
       </div>

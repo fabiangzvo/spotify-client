@@ -9,5 +9,5 @@ export async function GetGenres(): Promise<GenresResponse> {
     "/recommendations/available-genre-seeds"
   );
 
-  return response.data;
+  return response.data || { genres: [] };
 }

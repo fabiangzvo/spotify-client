@@ -27,10 +27,10 @@ function Home() {
   return (
     <main className="w-screen h-screen flex flex-col justify-around items-center">
       <div className="flex flex-col justify-center items-center text-paragraph">
-        <h1 className="text-7xl">
+        <h1 className="text-7xl max-md:text-4xl">
           ¡Descubre la magia de la música con nuestra nueva webapp!
         </h1>
-        <article className="text-2xl">
+        <article className="text-2xl max-md:text-xl">
           Integramos el poderoso API de Spotify para ofrecerte una experiencia
           única. Explora playlists personalizadas, descubre artistas emergentes
           y crea tu propia sinfonía personalizada.
@@ -44,11 +44,12 @@ function Home() {
           redirectUri={window.location.origin}
           onSuccess={onSuccess}
           onFailure={onFailure}
+          scope="user-top-read,user-read-email,user-read-recently-played"
         />
-        <span className="text-xl text-paragraph pt-5">
+        <span className="text-xl text-paragraph pt-5 max-md:text-lg">
           ¿No tienes cuenta?&nbsp;
           <a
-            className="text-2xl text-paragraph font-extrabold hover:underline"
+            className="text-2xl max-md:text-xl text-paragraph font-extrabold hover:underline"
             href="https://www.spotify.com/co-es/signup"
             target="_blank"
           >

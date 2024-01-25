@@ -1,17 +1,35 @@
 import FeaturedPlaylists from "../../components/featuredPlaylists";
+import RecentlyPlayed from "../../components/recentlyPlayed";
 import SuggestedAlbums from "../../components/suggestedAlbums";
-import SuggestedTracks from "../../components/suggestedTracks";
+import TopTracks from "../../components/topTracks";
 
 function Home() {
   return (
-    <main className="h-full w-full">
+    <div className="h-full w-full">
       <FeaturedPlaylists />
-      <div className="flex">
-        <SuggestedTracks />
+      <div className="flex justify-around">
+        <TopTracks />
         <SuggestedAlbums />
+        <RecentlyPlayed />
       </div>
-    </main>
+    </div>
   );
 }
 
 export default Home;
+
+/**
+  const [genres, setGenres] = useState<Array<string>>([]);
+
+  useEffect(() => {
+    async function getInitialData() {
+      const { genres } = await GetGenres();
+
+      setGenres(
+        genres.length ? genres : ["pop", "rock", "hip-hop", "latin", "edm"]
+      );
+    }
+
+    getInitialData();
+  }, []);
+ */

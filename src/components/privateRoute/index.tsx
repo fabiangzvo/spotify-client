@@ -4,6 +4,7 @@ import { useOutlet } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import Login from "../../pages/login";
 import VerticalMenu from "../verticalMenu";
+import Footer from "../footer";
 
 function PrivateRoute() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -14,9 +15,12 @@ function PrivateRoute() {
   }
 
   return (
-    <main className="flex">
-      <VerticalMenu />
-      {outlet}
+    <main className="flex flex-col">
+      <div className="flex min-h-[94vh]">
+        <VerticalMenu />
+        {outlet}
+      </div>
+      <Footer />
     </main>
   );
 }
