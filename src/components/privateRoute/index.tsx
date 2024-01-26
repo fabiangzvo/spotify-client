@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 import Login from "../../pages/login";
 import VerticalMenu from "../verticalMenu";
 import Footer from "../footer";
+import Navbar from "../navbar";
 
 function PrivateRoute() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -18,7 +19,10 @@ function PrivateRoute() {
     <main className="flex flex-col">
       <div className="flex min-h-[94vh]">
         <VerticalMenu />
-        {outlet}
+        <div>
+          <Navbar />
+          {outlet}
+        </div>
       </div>
       <Footer />
     </main>
