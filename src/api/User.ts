@@ -1,6 +1,7 @@
 import SpotifyApi from "./SpotifyApi";
 import { Track, TimeRange } from "../types/Track";
 import { FetchDataInterface, PaginatedData } from "../types/Pagination";
+import { User } from "../types/User";
 
 interface UserTop extends FetchDataInterface {
   type: "artists" | "tracks";
@@ -22,6 +23,12 @@ export async function GetUserTop(
       },
     }
   );
+
+  return response.data;
+}
+
+export async function GetUserInfo(): Promise<User> {
+  const response = await SpotifyApi.get<User>("/me");
 
   return response.data;
 }

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useOutlet } from "react-router-dom";
 
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/authContext";
 import Login from "../../pages/login";
 import VerticalMenu from "../verticalMenu";
 import Footer from "../footer";

@@ -8,9 +8,9 @@ function Home() {
     <div className="h-full w-full">
       <FeaturedPlaylists />
       <div className="flex justify-around">
-        <TopTracks />
-        <SuggestedAlbums />
         <RecentlyPlayed />
+        <SuggestedAlbums />
+        <TopTracks />
       </div>
     </div>
   );

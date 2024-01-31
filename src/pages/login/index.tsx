@@ -1,7 +1,7 @@
 import { useCallback, useContext } from "react";
 import SpotifyLogin from "react-spotify-login";
 
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/authContext";
 
 interface successEvent {
   access_token: string;
@@ -44,7 +44,7 @@ function Home() {
           redirectUri={window.location.origin}
           onSuccess={onSuccess}
           onFailure={onFailure}
-          scope="user-top-read,user-read-email,user-read-recently-played"
+          scope="user-top-read,user-read-email,user-read-recently-played,user-read-private"
         />
         <span className="text-xl text-paragraph pt-5 max-md:text-lg">
           ¿No tienes cuenta?&nbsp;
