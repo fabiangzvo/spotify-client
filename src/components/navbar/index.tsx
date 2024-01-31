@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 import { IoMdSearch } from "react-icons/io";
 
@@ -5,8 +6,15 @@ import UserOptions from "../userOptions";
 
 function Navbar() {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FieldValues> = (data, event) => {
+    event?.preventDefault();
+
+    const { search } = data;
+
+    navigate(`/browse?search=${search}`);
+  };
 
   return (
     <div className="w-full flex justify-between items-center mt-10 px-5">
@@ -21,7 +29,10 @@ function Navbar() {
           required
           {...register("search")}
         />
-        <button className="absolute top-0 end-0 p-2.5 h-[90%] text-sm font-medium text-title bg-transparent rounded-xl mr-1.5">
+        <button
+          type="submit"
+          className="absolute top-0 end-0 p-2.5 h-full text-title bg-transparent border-l-2 border-card-border"
+        >
           <IoMdSearch size="2em" />
         </button>
       </form>

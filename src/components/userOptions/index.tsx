@@ -19,12 +19,12 @@ function UserDropdown() {
     <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
       <button
         type="button"
-        className="flex text-lg rounded-full text-title font-bold"
+        className="flex items-center text-lg rounded-full text-title font-bold"
         onClick={handleClick}
       >
         {user?.display_name}&emsp;
         <img
-          className="w-8 h-8 rounded-full"
+          className="w-12 h-12 rounded-full"
           src={user?.images[0].url}
           alt="user photo"
         />
