@@ -35,7 +35,7 @@ function TopTracks() {
   }, []);
 
   return (
-    <div className="w-[25vw] relative">
+    <div className="w-[25vw] relative max-lg:w-full">
       <h1 className="text-xl font-black text-title my-6">
         What you listen to the most
       </h1>
@@ -44,7 +44,7 @@ function TopTracks() {
         list={TIME_RANGE_ITEMS}
         selectedBadge={timeRange}
       />
-      <div className="h-[55vh]  overflow-y-auto scroll">
+      <div className="h-[45vh] overflow-y-auto scroll">
         <ListOfTracks tracks={tracks} loading={loading} />
       </div>
     </div>

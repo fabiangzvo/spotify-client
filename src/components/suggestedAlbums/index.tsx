@@ -41,11 +41,11 @@ function SuggestedAlbums() {
   );
 
   return (
-    <div className="w-[40vw] max-sm:w-[90vw]">
+    <div className="w-[40vw] max-sm:w-[90vw] max-lg:w-full">
       <h1 className="text-xl font-black text-title my-6">
         Suggested album for you
       </h1>
-      <div className="w-full h-[60vh] overflow-y-auto overflow-x-hidden grid gap-1 items-stretch sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-auto-fill scroll">
+      <div className="w-full h-[50vh] overflow-y-auto overflow-x-hidden grid gap-1 items-stretch sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-auto-fill scroll">
         {items}
         <div ref={ref}>{loading && <Loader />}</div>
       </div>

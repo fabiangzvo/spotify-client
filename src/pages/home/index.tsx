@@ -5,9 +5,9 @@ import TopTracks from "../../components/topTracks";
 
 function Home() {
   return (
-    <div className="h-full w-full">
+    <div className="">
       <FeaturedPlaylists />
-      <div className="flex justify-around">
+      <div className="flex justify-around max-lg:flex-col">
         <RecentlyPlayed />
         <SuggestedAlbums />
         <TopTracks />
