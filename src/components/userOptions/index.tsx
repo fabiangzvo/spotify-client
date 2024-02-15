@@ -1,11 +1,22 @@
-import { MouseEventHandler, useState, useContext, useCallback } from "react";
+import {
+  MouseEventHandler,
+  useState,
+  useContext,
+  useCallback,
+  PropsWithChildren,
+  useMemo,
+} from "react";
 import cs from "classnames";
 import Flag from "react-world-flags";
 
 import { AuthContext } from "../../context/authContext";
 import { UserContext } from "../../context/userInfoContext";
 
-function UserDropdown() {
+interface UserDropdown extends PropsWithChildren {}
+
+function UserDropdown(props: UserDropdown) {
+  const { children } = props;
+
   const [showOptions, setShowOptions] = useState(false);
   const { logout } = useContext(AuthContext);
   const { user } = useContext(UserContext);
@@ -13,6 +24,12 @@ function UserDropdown() {
   const handleClick = useCallback<MouseEventHandler<HTMLElement>>(
     () => setShowOptions(!showOptions),
     [showOptions]
+  );
+
+  const child = useMemo(
+    () =>
+      children ? <div className=" pb-3 text-center">{children}</div> : null,
+    [children]
   );
 
   return (
@@ -31,13 +48,16 @@ function UserDropdown() {
       </button>
       <div
         className={cs({
-          "z-50 text-base list-none border border-card-border bg-background divide-y divide-card-border rounded-lg shadow absolute top-10 right-0":
+          "z-50 text-base list-none lg:border border-card-border bg-background divide-y divide-card-border rounded-lg shadow absolute top-10 right-0 max-lg:w-screen max-lg:top-14 max-lg:-right-5":
             true,
           hidden: !showOptions,
         })}
         id="user-dropdown"
       >
-        <div className="px-4 pb-3 text-center">
+        {child}
+        <div
+          className={cs({ "px-4 pb-3 text-center": true, "pt-5": !!children })}
+        >
           <span className="text-lg text-paragraph truncate my-4">
             {user?.email}
           </span>

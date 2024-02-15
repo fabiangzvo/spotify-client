@@ -1,42 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import { IoMdSearch } from "react-icons/io";
+import { useMemo } from "react";
 
+import { useMediaQuery } from "../../hooks/useMediaQuery";
+import SearchInput from "./components/searchInput";
 import UserOptions from "../userOptions";
 
 function Navbar() {
-  const { register, handleSubmit } = useForm();
-  const navigate = useNavigate();
+  const isLg = useMediaQuery("(max-width: 1024px)");
 
-  const onSubmit: SubmitHandler<FieldValues> = (data, event) => {
-    event?.preventDefault();
+  const { dropdown, navbar } = useMemo(() => {
+    const input = <SearchInput />;
 
-    const { search } = data;
+    const navbar = !isLg ? <div className="w-[80%]">{input}</div> : null;
+    const dropdown = isLg ? <div className="mt-5 px-2">{input}</div> : null;
 
-    navigate(`/browse?search=${search}`);
-  };
+    return { navbar, dropdown };
+  }, [isLg]);
 
   return (
-    <div className="w-full flex justify-between items-center mt-10 px-5">
-      <form
-        className="relative w-[80%] border-2 border-card-border rounded-xl"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <input
-          id="search-dropdown"
-          className="block p-2.5 w-full z-20 text-paragraph bg-background rounded-xl text-xl"
-          placeholder="Search"
-          required
-          {...register("search")}
-        />
-        <button
-          type="submit"
-          className="absolute top-0 end-0 p-2.5 h-full text-title bg-transparent border-l-2 border-card-border"
-        >
-          <IoMdSearch size="2em" />
-        </button>
-      </form>
-      <UserOptions />
+    <div className="w-full flex justify-between items-center mt-10 px-5 max-lg:mt-5">
+      <img src="/spotify.svg" className="hidden h-8 w-8 max-lg:block" />
+      {navbar}
+      <UserOptions children={dropdown} />
     </div>
   );
 }
