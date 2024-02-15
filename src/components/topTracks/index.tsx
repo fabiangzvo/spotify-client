@@ -36,7 +36,7 @@ function TopTracks() {
 
   return (
     <div className="w-[25vw] relative max-lg:w-full">
-      <h1 className="text-xl font-black text-title my-6">
+      <h1 className="text-xl font-black text-title my-6 max-lg:text-center">
         What you listen to the most
       </h1>
       <ListOfBadges

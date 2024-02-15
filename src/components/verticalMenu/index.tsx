@@ -77,7 +77,7 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <div className="bg-background w-[7vw]">
+    <div className="bg-background w-[7vw] max-lg:hidden">
       <ul className="text-paragraph w-full flex flex-col items-center justify-around">
         <li className="mt-6">
           <img src="/spotify.svg" className="h-8 w-8" />
