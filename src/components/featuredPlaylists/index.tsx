@@ -46,7 +46,7 @@ function FeaturedPlaylists() {
 
   return (
     <div>
-      <h1 className="text-xl font-black text-title my-6 max-lg:text-center">
+      <h1 className="text-xl font-black text-title my-3 max-lg:text-center">
         Popular playlists
       </h1>
       <div className="w-full overflow-x-scroll overflow-y-hidden h-[14rem] whitespace-nowrap scroll">

@@ -17,7 +17,7 @@ function Navbar() {
   }, [isLg]);
 
   return (
-    <div className="w-full flex justify-between items-center mt-10 px-5 max-lg:mt-5">
+    <div className="w-full flex justify-between items-center mt-5 px-5 max-lg:mt-5">
       <img src="/spotify.svg" className="hidden h-8 w-8 max-lg:block" />
       {navbar}
       <UserOptions children={dropdown} />

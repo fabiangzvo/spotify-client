@@ -45,7 +45,7 @@ function SuggestedAlbums() {
       <h1 className="text-xl font-black text-title my-6 max-lg:text-center">
         Suggested album for you
       </h1>
-      <div className="w-full h-[50vh] overflow-y-auto overflow-x-hidden grid gap-1 items-stretch sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-auto-fill scroll">
+      <div className="w-full h-[43vh] overflow-y-auto overflow-x-hidden grid gap-1 items-stretch sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-auto-fill scroll">
         {items}
         <div ref={ref}>{loading && <Loader />}</div>
       </div>

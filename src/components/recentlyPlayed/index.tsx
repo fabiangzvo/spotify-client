@@ -31,7 +31,7 @@ function RecentlyPlayed() {
       <h1 className="text-xl font-black text-title my-6 max-lg:text-center">
         Recently heard
       </h1>
-      <div className="h-[50vh]  overflow-y-auto scroll">
+      <div className="h-[43vh]  overflow-y-auto scroll">
         <ListOfTracks tracks={tracks} loading={loading} />
       </div>
     </div>

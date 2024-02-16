@@ -17,9 +17,9 @@ function PrivateRoute() {
 
   return (
     <main className="flex flex-col">
-      <div className="flex min-h-[94vh]">
+      <div className="flex min-h-[92vh]">
         <VerticalMenu />
-        <div>
+        <div className="h-auto">
           <Navbar />
           {outlet}
         </div>
