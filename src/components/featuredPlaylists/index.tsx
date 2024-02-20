@@ -7,6 +7,8 @@ import { Playlist } from "../../types/Playlist";
 import PlaylistItem from "./components/playlistItem";
 import Loader from "../loader";
 
+import "./styles.css";
+
 function FeaturedPlaylists() {
   const [playlists, setPlaylists] = useState<Array<Playlist>>([]);
 
@@ -45,14 +47,18 @@ function FeaturedPlaylists() {
   );
 
   return (
-    <div>
+    <div className="h-[26vh]">
       <h1 className="text-xl font-black text-title my-3 max-lg:text-center">
         Popular playlists
       </h1>
-      <div className="w-full overflow-x-scroll overflow-y-hidden h-[14rem] whitespace-nowrap scroll">
-        {items}
-        <div ref={ref} className="h-full inline-block relative top-[-6rem]">
-          {(loading || hasMore) && <Loader />}
+      <div className="absolute h-[25vh] w-[92%] overflow-x-hidden overflow-y-hidden whitespace-nowrap scroll top-[12%] max-lg:top-[8rem]">
+        <div id="horizontal-child" className="bottom-[76vh] w-[100vh] h-[93vw]">
+          <div id="slide">
+            {items}
+            <div ref={ref} className="h-full inline-block relative top-[-6rem]">
+              {(loading || hasMore) && <Loader />}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -60,3 +66,4 @@ function FeaturedPlaylists() {
 }
 
 export default FeaturedPlaylists;
+ 

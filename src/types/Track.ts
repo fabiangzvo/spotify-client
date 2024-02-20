@@ -26,6 +26,7 @@ export interface Track {
   restrictions?: {
     reason: string;
   };
+  played_at?: string;
 }
 
 export type TimeRange = "short_term" | "medium_term" | "long_term";

@@ -7,16 +7,23 @@ import Loader from "../loader";
 interface ListOfTracksProps {
   tracks: Array<Track>;
   loading: boolean;
+  showPlaybackDate?: boolean;
 }
 
 function ListOfTracks(props: ListOfTracksProps) {
-  const { tracks, loading } = props;
+  const { tracks, loading, showPlaybackDate = false } = props;
 
   const trackItems = useMemo(() => {
     if (loading) return <Loader />;
 
-    return tracks.map((track) => <TrackItem key={track.id} {...track} />);
-  }, [tracks, loading]);
+    return tracks.map((track) => (
+      <TrackItem
+        key={track.id}
+        showPlaybackDate={showPlaybackDate}
+        {...track}
+      />
+    ));
+  }, [loading, tracks, showPlaybackDate]);
 
   return <ul className="h-auto">{trackItems}</ul>;
 }

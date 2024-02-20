@@ -1,9 +1,34 @@
+import { useMemo } from "react";
 import { FaPlayCircle } from "react-icons/fa";
+import moment from "moment";
 
 import { Track } from "../../../../types/Track";
 
-function TrackItem(props: Track) {
-  const { id, name, album, artists } = props;
+interface TrackItemProps extends Track {
+  showPlaybackDate?: boolean;
+}
+
+function TrackItem(props: TrackItemProps) {
+  const {
+    id,
+    name,
+    album,
+    artists,
+    played_at = "",
+    showPlaybackDate = false,
+  } = props;
+
+  const secondaryComponent = useMemo(
+    () =>
+      showPlaybackDate && played_at ? (
+        <label className="text-paragraph">
+          {moment().diff(played_at, "hours") + " hours ago"}
+        </label>
+      ) : (
+        <FaPlayCircle size="2.5em" />
+      ),
+    [played_at, showPlaybackDate]
+  );
 
   return (
     <li
@@ -25,7 +50,7 @@ function TrackItem(props: Track) {
           </p>
         </div>
         <div className="inline-flex items-center text-base font-semibold text-title">
-          <FaPlayCircle size="2.5em" />
+          {secondaryComponent}
         </div>
       </div>
     </li>

@@ -22,7 +22,11 @@ function RecentlyPlayed() {
   }, []);
 
   const tracks = useMemo(
-    () => playHistoryList.map((playHistory) => playHistory.track),
+    () =>
+      playHistoryList.map((playHistory) => ({
+        ...playHistory.track,
+        played_at: playHistory.played_at,
+      })),
     [playHistoryList]
   );
 
@@ -31,8 +35,8 @@ function RecentlyPlayed() {
       <h1 className="text-xl font-black text-title my-6 max-lg:text-center">
         Recently heard
       </h1>
-      <div className="h-[43vh]  overflow-y-auto scroll">
-        <ListOfTracks tracks={tracks} loading={loading} />
+      <div className="h-[43vh] overflow-y-auto scroll lg:h-[48vh]">
+        <ListOfTracks tracks={tracks} loading={loading} showPlaybackDate />
       </div>
     </div>
   );

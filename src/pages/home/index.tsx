@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className="max-lg:w-screen p-3 pt-0">
       <FeaturedPlaylists />
-      <div className="flex justify-around max-lg:flex-col">
+      <div className="w-full flex justify-around max-lg:flex-col">
         <RecentlyPlayed />
         <SuggestedAlbums />
         <TopTracks />

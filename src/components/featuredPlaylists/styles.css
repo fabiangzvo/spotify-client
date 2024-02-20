@@ -1,0 +1,12 @@
+  #horizontal-child {
+    position: relative;
+    display: block;
+    overflow: scroll;
+    transform-origin: 100% 0%;
+    transform: rotate(-90deg) translateY(-100vh);
+  }
+  
+  #horizontal-child #slide {
+    transform-origin: 0% 0%;
+    transform: rotate(90deg) translateY(-100%);
+  }

@@ -44,7 +44,7 @@ function TopTracks() {
         list={TIME_RANGE_ITEMS}
         selectedBadge={timeRange}
       />
-      <div className="h-[30vh] overflow-y-auto scroll">
+      <div className="h-[30vh] lg:h-[42vh] overflow-y-auto scroll">
         <ListOfTracks tracks={tracks} loading={loading} />
       </div>
     </div>
