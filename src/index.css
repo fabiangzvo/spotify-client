@@ -17,6 +17,7 @@ body {
   overflow: auto;
 }
 
+/*scroll styles*/
 .scroll::-webkit-scrollbar {
   width: 18px;
 }
@@ -31,4 +32,22 @@ body {
   border: 4px solid transparent;
   background-clip: content-box;
   background-color: var(--shadow);
+}
+
+/* Horizontal scroll */
+#horizontal-child {
+  position: relative;
+  display: block;
+  overflow: scroll;
+  transform-origin: 100% 0%;
+  transform: rotate(-90deg) translateY(-100vh);
+}
+
+#horizontal-child #slide {
+  transform-origin: 0% 0%;
+  transform: rotate(90deg) translateY(-100%);
+}
+
+#horizontal-child #slide > div:last-of-type {
+  margin-right: em;
 }

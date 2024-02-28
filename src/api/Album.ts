@@ -1,9 +1,9 @@
 import SpotifyApi from "./SpotifyApi";
-import { PaginatedAlbum } from "../types/Album";
+import { PaginatedAlbums } from "../types/Album";
 import { FetchDataInterface } from "../types/Pagination";
 
 interface NewReleaseAlbums {
-  albums: PaginatedAlbum;
+  albums: PaginatedAlbums;
 }
 
 export async function GetNewReleases(

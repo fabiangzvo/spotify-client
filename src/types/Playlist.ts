@@ -1,3 +1,5 @@
+import { PaginatedData } from "./Pagination";
+
 export interface PlaylistImage {
   url: string;
   height: number;
@@ -36,19 +38,11 @@ export interface Playlist {
     href: string;
     total: number;
   };
-  type: string;
+  type: "playlist";
   uri: string;
 }
 
-export interface PaginatedPlaylists {
-  href: string;
-  limit: number;
-  next: string;
-  offset: number;
-  previous: string;
-  total: number;
-  items: Array<Playlist>;
-}
+export type PaginatedPlaylists = PaginatedData<Playlist>;
 
 export interface FeaturedPlaylistsResponse {
   message: string;

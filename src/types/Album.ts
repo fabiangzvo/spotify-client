@@ -1,4 +1,5 @@
 import { Artist } from "./Artist";
+import { PaginatedData } from "./Pagination";
 
 export interface AlbumImage {
   url: string;
@@ -27,12 +28,4 @@ export interface Album {
   artists: Array<Artist>;
 }
 
-export interface PaginatedAlbum {
-  href: string;
-  limit: number;
-  next: string;
-  offset: number;
-  previous: string;
-  total: number;
-  items: Array<Album>;
-}
+export type PaginatedAlbums = PaginatedData<Album>;

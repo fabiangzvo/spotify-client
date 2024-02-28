@@ -1,4 +1,5 @@
 import { AlbumImage } from "./Album";
+import { PaginatedData } from "./Pagination";
 
 export interface Artist {
   external_urls: Record<string, unknown>;
@@ -15,6 +16,8 @@ export interface Artist {
   type: "artist";
   uri: string;
 }
+
+export type PaginatedArtists = PaginatedData<Artist>;
 
 export type ArtistTrack = Pick<
   Artist,

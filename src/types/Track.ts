@@ -1,5 +1,6 @@
 import { Album } from "./Album";
 import { ArtistTrack } from "./Artist";
+import { PaginatedData } from "./Pagination";
 
 export interface Track {
   album: Album;
@@ -28,5 +29,7 @@ export interface Track {
   };
   played_at?: string;
 }
+
+export type PaginatedTracks = PaginatedData<Track>;
 
 export type TimeRange = "short_term" | "medium_term" | "long_term";
